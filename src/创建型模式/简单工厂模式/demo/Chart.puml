@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Chart{
++ display() : void
+}
+class HistogramChart{
++ HistogramChart()
++ display() : void
+}
+class LineChart{
++ LineChart()
++ display() : void
+}
+class PieChart{
++ PieChart()
++ display() : void
+}
+PieChart ..|>Chart
+HistogramChart ..|>Chart
+LineChart ..|>Chart
+
+class ChartFactory{
++ getChart(String type) : Chart
+}
+
+ChartFactory ..> LineChart : create
+ChartFactory ..> PieChart : create
+ChartFactory ..> HistogramChart : create
+
+@enduml
