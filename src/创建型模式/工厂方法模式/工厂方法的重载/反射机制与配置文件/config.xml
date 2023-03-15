@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <className>创建型模式.工厂方法模式.工厂方法的重载.FileLoggerFactory</className>
+</config>

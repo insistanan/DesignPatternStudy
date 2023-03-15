@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface LoggerFactory{
++ createLogger() : Logger
++ createLogger(String args) : Logger
++ createLogger(Object obj) : Logger
+}
+interface Logger{
++ writeLog() : void
+}
+class FileLoggerFactory{
++ createLogger() : Logger
++ createLogger(String args) : Logger
++ createLogger(Object obj) : Logger
+}
+class DatabaseLoggerFactory{
++ createLogger() : Logger
++ createLogger(String args) : Logger
++ createLogger(Object obj) : Logger
+}
+class FileLogger{
++ writeLog() : void
+}
+class DatabaseLogger{
++ writeLog() : void
+}
+class Client{
+
+}
+Client ..> LoggerFactory
+Client ..> Logger
+FileLoggerFactory ..|> LoggerFactory
+DatabaseLoggerFactory ..|> LoggerFactory
+FileLogger ..|> Logger
+DatabaseLogger ..|> Logger
+FileLoggerFactory ..> FileLogger : create
+DatabaseLoggerFactory ..> DatabaseLogger : create
+@enduml
